@@ -21,6 +21,11 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+" Three lines needed for Scala (TODO review how this workswork).
+execute pathogen#infect()
+filetype plugin indent on
+autocmd BufNewFile,BufRead *.ssc set syntax=scala
+
 " Set default syntax on (usually good enough for me).
 syntax on
 
@@ -35,3 +40,11 @@ autocmd BufRead,BufNewFile *.txt set spell spelllang=en_us
 
 " Return to last edit position when opening files (cool!).
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Try to be smart when indenting. TODO check if this is deprecated.
+set autoindent
+set smartindent
+
+" Not sure if this isimportant, but file encoding.
+set encoding=utf-8
+set fileencoding=utf-8
