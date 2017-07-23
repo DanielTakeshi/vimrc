@@ -7,13 +7,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set 10 lines to the cursor - when moving vertically using j/k.
-set so=10
+set scrolloff=10
 
 " Set the line numbers to be on the left hand side.
-set nu
+set number
 
 " Set the number of characters before breaking to a new line.
-set tw=80
+set textwidth=80
 
 " Use (4) spaces instead of tabs (tabstop and shiftwidth apply to different
 " cases I think).
@@ -45,6 +45,24 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set autoindent
 set smartindent
 
+set history=10000 " Store lots of :cmdline history
+
+" write changes to file to make undo persistent between vim sessions.
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo') && isdirectory($HOME . '/.vim/backups')
+  silent !mkdir $HOME/.vim/backups > /dev/null 2>&1
+  set undodir= $HOME . /.vim/backups
+  set undofile
+endif
+
+set ignorecase " Ignore case when searching...
+set smartcase  " ...unless we type a capital
+set infercase  " smarter dictionary completion
+
+" Don't use plaintex
+let g:tex_flavor = 'latex'
+
 " Not sure if this isimportant, but file encoding.
 set encoding=utf-8
 set fileencoding=utf-8
+
