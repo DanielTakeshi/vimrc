@@ -21,11 +21,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" Three lines needed for Scala (TODO review how this workswork).
-execute pathogen#infect()
-filetype plugin indent on
-autocmd BufNewFile,BufRead *.ssc set syntax=scala
-
 " Set default syntax on (usually good enough for me).
 syntax on
 
