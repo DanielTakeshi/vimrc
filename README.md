@@ -1,3 +1,5 @@
+**Edit: deprecated, read here https://github.com/DanielTakeshi/dev-environment**
+
 # vimrc
 
 My `.vimrc` file is located in `vimrc`.
